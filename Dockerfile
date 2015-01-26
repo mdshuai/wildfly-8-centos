@@ -16,6 +16,8 @@ RUN (curl -0 http://mirror.cc.columbia.edu/pub/software/apache/maven/maven-3/3.0
     mkdir -p /wildfly && (curl -0 http://download.jboss.org/wildfly/8.1.0.Final/wildfly-8.1.0.Final.tar.gz | \
     tar -zx --strip-components=1 -C /wildfly) && mkdir -p /opt/wildfly/source
 
+RUN yum remove tar -y
+
 ADD ./wfmodules/ /wildfly/modules/
 
 ADD ./.sti/bin/usage /usr/bin/
